@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>XML Demo</title>
+<style>
+ul {
+background: #3399ff;
+list-style-type: none;
+}
+
+ul li {
+background: #cce5ff;
+margin: 2px;
+}
+</style>
+</head>
+<body>
+<ul>
+<?php
+include_once 'xmldemo2.php';
+foreach ($records_arr["records"] as $record) {
+  echo "<li>{$record["id"]} {$record["lastname"]}, {$record["firstname"]}</li>";
+}
+?>
+</ul>
+</body>
+</html>
