@@ -1,29 +1,11 @@
-name: Build and Deploy to GitHub Pages
+database:
+  host: "127.0.0.1"
+  db_name: "db_xmldemo"
+  username: "root"
+  password: ""
 
-on:
-  push:
-    branches:
-      - master
+records:
+  table_name: "records"
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: shivammathur/setup-php@v2
-        with:
-          php-version: 8.1
-      - run: composer install
-      - run: php artisan build
-
-  deploy:
-    needs: build
-
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-php@v2
-        with:
-          php-version: 8.1
-      - run: php artisan deploy
+xml:
+  file: "test2.xml"
